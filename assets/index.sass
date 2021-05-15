@@ -1,0 +1,305 @@
+//colors
+$bl: #000000
+$dar: #303952
+$wh: #ffffff
+$pur: #574b90
+
+$item: 90px
+$itemsmall: 70px
+
+html,
+body
+	position: fixed
+	top: 0
+	left: 0
+	width: 100vw
+	height: 100vh
+	margin: 0
+	padding: 0
+	overflow: hidden
+	background-color: $bl
+	background: linear-gradient(to bottom, $bl 0%, $pur 100%)
+	color: $wh
+	font-family: 'Open Sans Condensed', sans-serif
+
+a
+	display: block
+	font-family: 'Open Sans Condensed', sans-serif
+	color: #fff
+	text-decoration: none
+	&:active,
+	&:visited,
+	&:hover
+		font-family: 'Open Sans Condensed', sans-serif
+		color: #fff
+		text-decoration: none
+
+.app
+	position: absolute
+	width: 100vw
+	height: 100vh
+	top: 0
+	left: 0
+	user-select: none
+	&__waves
+		position: absolute
+		zindex: 20
+	&__hor-sli
+		position: absolute
+		z-index: 40
+		top: 30vh
+		left: 30vw
+	&__all-ver
+		position: absolute
+		z-index: 30
+		top: 30vh
+		left: 30vw
+	&__modal
+		position: absolute
+		z-index: 50
+		top: 0
+		left: 0
+
+.waves
+	position: fixed
+	top: 0
+	left: 0
+	color: #fff
+	&__wave
+		z-index: 0
+		background-image: url("./images/wave.png")
+		position: fixed
+		width: 6000px
+		height: 218px
+		top: 400px
+		opacity: 0.07
+		background-repeat: repeat-x
+		transform: scale(2, 1)
+
+		&_1
+			animation: wave 11s ease-in-out -3s infinite alternate
+		&_2
+			animation: long-wave 23s ease-in-out 0s infinite alternate
+			transform: scale(3, 1)
+		&_3
+			animation: wave 36s linear -5s infinite alternate
+		&_rev
+			transform: scale(3, -1)
+			top: 618px
+		&_4
+			animation: long-wave 16s ease-in-out -7s infinite alternate
+		&_5
+			animation: wave 27s ease-in-out -2s infinite alternate
+			transform: scale(2, -1)
+		&_6
+			animation: long-wave 41s ease-in-out -11s infinite alternate
+@keyframes wave
+	0%
+		left: 0
+	100%
+		left: -3876px
+@keyframes long-wave
+	0%
+		left: 0
+	100%
+		left: -5814px
+
+.hor-sli
+	display: flex
+	flex-direction: row
+	flex-wrap: nowrap
+	justify-content: flex-start
+	align-items: flex-start
+	transition: transform 0.2s ease-in-out
+	&--0
+		transform: translate(0px)
+	&--1
+		transform: translate(-160px)
+	&--2
+		transform: translate(-320px)
+	&--3
+		transform: translate(-480px)
+	&--4
+		transform: translate(-640px)
+
+	&__item
+		max-width: $item+70px
+		cursor: pointer
+		transition: transform 0.1s
+		filter: grayscale(80%)
+		&--selected
+			transform: scale(1.2)
+			filter: grayscale(0%)
+			.hor-sli__icon
+			.hor-sli__name
+		&--selectable
+			&:hover
+				transform: scale(1.2)
+				filter: grayscale(0%)
+			.hor-sli__icon
+			.hor-sli__name
+	&__icon
+		width: $item
+		height: $item
+		// border: 3px solid $wh
+		// border-radius: 25%
+		margin: 0 35px 10px 35px
+		background-size: 100%
+
+		&_1
+			background-image: url('./images/hor1.png')
+		&_2
+			background-image: url('./images/hor2.png')
+		&_3
+			background-image: url('./images/hor3.png')
+		&_4
+			background-image: url('./images/hor4.png')
+		&_5
+			background-image: url('./images/hor5.png')
+	&__name
+		width: 100%
+		text-align: center
+		font-size: 28px
+
+.all-ver
+	transition: transform 0.3s ease-in-out
+	&--0
+		transform: translate(0px)
+	&--1
+		transform: translate(-160px)
+	&--2
+		transform: translate(-320px)
+	&--3
+		transform: translate(-480px)
+	&--4
+		transform: translate(-640px)
+	&__ver-sli
+		position: absolute
+		z-index: 0
+		top: 0
+		opacity: 0
+		transition: opacity 0.3s, transform 0.3s
+		&--selected
+			opacity: 1
+			z-index: 1
+			transform: scale(1)
+		&--selectable
+			transform: scale(0)
+			transition: transform 0s 0.3s
+.ver-sli
+	&--0
+		transform: translate(0, 0px)
+	&--1
+		transform: translate(0, -140px)
+	&--2
+		transform: translate(0, -280px)
+	&--3
+		transform: translate(0, -420px)
+	&--4
+		transform: translate(0, -560px)
+	&_1
+		left: 0px
+	&_2
+		left: 160px
+	&_3
+		left: 320px
+	&_4
+		left: 480px
+	&_5
+		left: 640px
+	&__item
+		padding-left: 45px
+		display: flex
+		flex-direction: row
+		justify-content: flex-start
+		align-items: center
+		cursor: pointer
+		transition: all 0.1s
+		transform-origin: 80px 
+		filter: grayscale(80%)
+		&--selected
+			margin-top: 150px
+			transform: scale(1.2)
+			filter: grayscale(0%)
+		&--selectable
+			&:hover
+				transform: scale(1.2)
+				filter: grayscale(0%)
+				.ver-sli__icon
+				.ver-sli__name
+	&__icon
+		width: $itemsmall
+		height: $itemsmall
+		// border: 2px solid $wh
+		// border-radius: 25%
+		background-size: 100%
+		margin: 35px 0
+		&_pavlova
+			background-image: url('./images/ver11.png')
+		&_about
+			background-image: url('./images/ver12.png')
+		&_eng
+			background-image: url('./images/ver21.png')
+		&_deu
+			background-image: url('./images/ver22.png')
+		&_html
+			background-image: url('./images/ver23.png')
+		&_css
+			background-image: url('./images/ver24.png')
+		&_js
+			background-image: url('./images/ver25.png')
+		&_book1
+			border: 2px solid $wh
+			border-radius: 25%
+		&_book2
+			border: 2px solid $wh
+			border-radius: 25%
+		&_mom
+			background-image: url('./images/ver41.png')
+		&_wh
+			background-image: url('./images/ver51.png')
+		&_vk
+			background-image: url('./images/ver52.png')
+		&_tel
+			background-image: url('./images/ver53.png')
+		&_email
+			background-image: url('./images/ver54.png')
+		&_insta
+			background-image: url('./images/ver55.png')
+	&__name
+		padding-left: 20px
+		min-width: 200px
+		font-size: 20px
+
+.modal
+	width: 100vw
+	height: 100vh
+	display: flex
+	justify-content: center
+	align-items: center
+	opacity: 0
+	transform: scale(0)
+	transition: all 0.2s ease-in-out
+	&--opened
+		opacity: 1
+		transform: scale(1)
+	&__tapfield 
+		position: absolute
+		width: 100vw
+		height: 100vh
+		cursor: pointer
+		background-color: $bl
+		opacity: 0.2
+	&__window
+		position: absolute
+		background-color: rgba($bl, 0.3)
+		width: 90vw
+		max-width: 600px
+		max-height: 100vh
+		padding: 30px
+	&__name
+		font-size: 28px
+		margin-bottom: 30px
+	&__content
+		font-size: 18px
+
