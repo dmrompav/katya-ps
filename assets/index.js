@@ -50,8 +50,12 @@ let ModalContent = [
 ];
 
 let x = 0
-let y = [0,0,0,0,0]
+let y = [0, 0, 0, 0, 0]
 
+
+/* 
+
+*/
 horButtons.forEach((btn, ind) => {
 	btn.addEventListener('click', function () {
 		horButtons[x].classList.remove('hor-sli__item--selected')
@@ -70,6 +74,10 @@ horButtons.forEach((btn, ind) => {
 	})
 })
 
+
+/* 
+
+*/
 verButtons.forEach(slider => {
 	slider.forEach((btn, ind) => {
 		btn.addEventListener('click', function () {
@@ -87,6 +95,10 @@ verButtons.forEach(slider => {
 	})
 })
 
+
+/* 
+
+*/
 function CallModal() {
 	document.querySelector('.modal').classList.add('modal--opened')
 	document.querySelector('.modal__name').innerHTML = ModalContent[x][y[x]].name
@@ -94,6 +106,10 @@ function CallModal() {
 	document.querySelector('.modal__tapfield').addEventListener('click', CloseModal, false)
 }
 
+
+/* 
+
+*/
 function CloseModal() {
 	document.querySelector('.modal').classList.remove('modal--opened')
 }
